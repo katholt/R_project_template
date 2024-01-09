@@ -21,7 +21,7 @@ library(patchwork)
 # read data
 ``` {r}
 # read as a tibble
-data <- read_csv("data.csv")
+data <- read_csv("data/data.csv")
 
 # print the dimensions of the table for reference
 dim(data)
