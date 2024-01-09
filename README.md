@@ -11,3 +11,4 @@ Key principles to keep things simple:
 * the Rmd file sets the R working directory to the location of the script, i.e. the project repo itself, via `knitr::opts_knit$set(root.dir = getwd())`
 * input data should be stored within the same repository (ideally in a `/data` dir) so it can be easily shared and loaded; OR stored elsewhere online and loaded via URL
 * output files should be stored within the repository in suitably labelled directories, e.g. `/figs` and `/tables`, to keep things organised
+* the Rmd file sets the default knitR output to HTML, via `output: html_document` - this means an HTML file of all code + outputs is generated when you click 'Knit' in RStudio
