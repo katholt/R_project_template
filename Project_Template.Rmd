@@ -1,0 +1,56 @@
+---
+title: "project"
+author: "name"
+date: "2024-01-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# set working directory to the location of the script
+knitr::opts_knit$set(root.dir = getwd())
+
+# load packages
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+```
+
+# read data
+``` {r}
+# read as a tibble
+data <- read_csv("data.csv")
+
+# print the dimensions of the table for reference
+dim(data)
+```
+
+# make a plot and print it so we can see it in the knitR document
+``` {r}
+plot <- data %>% 
+  ggplot(aes(x=var1, y=var2)) + 
+  geom_point()
+
+plot
+```
+
+# save the plot to PDF and PNG
+```{r}
+
+# store figure files in a '/figs' subdir to keep things clean
+
+ggsave(height=6, width=9, file="figs/fig1.pdf")
+ggsave(height=6, width=9, file="figs/fig1.png")
+
+```
+
+# make a table and write it to CSV for reference
+```{r}
+
+table1 <- data %>% group_by(var1) %>% count()
+
+write.csv(table1, file="tables/table1.csv", row.names=F)
+
+```
