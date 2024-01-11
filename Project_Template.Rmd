@@ -3,7 +3,8 @@ title: "project"
 author: "name"
 date: "2024-01-01"
 output: 
-  html_document:
+  prettydoc::html_pretty:
+    theme: cayman
     toc: true
 ---
 
