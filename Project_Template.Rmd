@@ -1,7 +1,7 @@
 ---
 title: "project"
 author: "name"
-date: "2024-01-01"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   prettydoc::html_pretty:
     theme: cayman
