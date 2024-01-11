@@ -18,6 +18,14 @@ library(ggplot2)
 library(patchwork)
 ```
 
+# print session info (package versions)
+```{r session_info}
+
+# print versions
+sessionInfo()
+
+```
+
 # read data
 ``` {r read_data}
 # read as a tibble
