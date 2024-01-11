@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = getwd())
 
 # load packages
+library(knitr)
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
@@ -57,8 +58,13 @@ ggsave(height=6, width=9, file="figs/fig1.png")
 # make a table and write it to CSV for reference
 ```{r make_and_print_table}
 
+# create table
 table1 <- data %>% group_by(var1) %>% count()
 
+# print table in human redable format
+table1 %>% kable()
+
+# write table to file
 write.csv(table1, file="tables/table1.csv", row.names=F)
 
 ```
