@@ -1,8 +1,11 @@
 ---
 title: "project"
 author: "name"
-date: "2024-01-01"
-output: html_document
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: cayman
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -12,14 +15,23 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = getwd())
 
 # load packages
+library(knitr)
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(patchwork)
 ```
 
+# print session info (package versions)
+```{r session_info}
+
+# print versions
+sessionInfo()
+
+```
+
 # read data
-``` {r}
+``` {r read_data}
 # read as a tibble
 data <- read_csv("data/data.csv")
 
@@ -28,7 +40,7 @@ dim(data)
 ```
 
 # make a plot and print it so we can see it in the knitR document
-``` {r}
+``` {r plot_data}
 plot <- data %>% 
   ggplot(aes(x=var1, y=var2)) + 
   geom_point()
@@ -37,7 +49,7 @@ plot
 ```
 
 # save the plot to PDF and PNG
-```{r}
+```{r output_figs}
 
 # store figure files in a '/figs' subdir to keep things clean
 
@@ -47,10 +59,15 @@ ggsave(height=6, width=9, file="figs/fig1.png")
 ```
 
 # make a table and write it to CSV for reference
-```{r}
+```{r make_and_print_table}
 
+# create table
 table1 <- data %>% group_by(var1) %>% count()
 
+# print table in human redable format
+table1 %>% kable()
+
+# write table to file
 write.csv(table1, file="tables/table1.csv", row.names=F)
 
 ```
