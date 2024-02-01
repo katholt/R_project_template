@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # set working directory to the location of the script
 knitr::opts_knit$set(root.dir = getwd())
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 
 # load packages
 library(knitr)
