@@ -15,6 +15,9 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = getwd())
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 
+# set global fig size
+knitr::opts_chunk$set(fig.width=12, fig.height=12) 
+
 # load packages
 library(knitr)
 library(tidyverse)
